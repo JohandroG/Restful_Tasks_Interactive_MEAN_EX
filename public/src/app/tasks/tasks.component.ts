@@ -30,8 +30,10 @@ task:any = {};
   findTask(event:any):void{
     event.preventDefault();
     this.title = event.target.title.value;
-    this._HttpService.selectTask(this.title);
-    this.task = this._HttpService.task;
+    this._HttpService.selectTask(this.title)
+    .subscribe((data:any) => {
+      this.task = data;
+    });
     console.log(this.task);
   }
 

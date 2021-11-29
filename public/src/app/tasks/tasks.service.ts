@@ -26,10 +26,7 @@ task:Object = {};
   }
 
   selectTask(title:string){
-    this._http.get(`http://localhost:8080/tasks/${title}`)
-    .subscribe((data:any) => {
-      this.task = data;
-    });
+    return this._http.get(`http://localhost:8080/tasks/${title}`)
   }
 
 }
