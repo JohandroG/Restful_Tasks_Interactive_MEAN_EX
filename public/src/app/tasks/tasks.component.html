@@ -1,20 +1,21 @@
-<h1>Those are all the tasks</h1>
-
-<div *ngFor="let task of alltasks">
-    {{task.title}}
-    {{task.description}}
-    {{task.completed}}
-</div>
-
 <button type="button" (click)="displayAllTasks()">
-Display All
+GET ALL TASKS
 </button>
 
-<form (submit) = "findTask($event)">
-    <input id="title" name="title" type="text">
-    <button>
-    Find Task
-    </button>
-</form>
+<div *ngFor="let task of alltasks" class="task">
+    {{task.title}}
+    <a href="http://localhost:8080/tasks/{{task.title}}">
+        SHOW
+    </a>
+    <form (submit)="findTask($event)">
+        <input type="hidden" value="{{task.title}}" id="title">
+        <button type="submit">
+            SHOW
+        </button>
+    </form>
+</div>
 
-<h3>{{task}}</h3>
+<div class="show">
+    {{task.title}}
+    {{task.description}}
+</div>

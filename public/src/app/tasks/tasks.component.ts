@@ -12,7 +12,8 @@ title: string = ""
 
 alltasks:any[] = [];
 
-task:Object = {};
+task:any = {};
+
 
   constructor(private _HttpService: TasksService) { 
     
@@ -24,7 +25,6 @@ task:Object = {};
   displayAllTasks():void{
     this.alltasks = this._HttpService.alltasks
     console.log(this.alltasks);
-    
   }
 
   findTask(event:any):void{
@@ -32,6 +32,7 @@ task:Object = {};
     this.title = event.target.title.value;
     this._HttpService.selectTask(this.title);
     this.task = this._HttpService.task;
+    console.log(this.task);
   }
 
 
