@@ -4,9 +4,6 @@ GET ALL TASKS
 
 <div *ngFor="let task of alltasks" class="task">
     {{task.title}}
-    <a href="http://localhost:8080/tasks/{{task.title}}">
-        SHOW
-    </a>
     <form (submit)="findTask($event)">
         <input type="hidden" value="{{task.title}}" id="title">
         <button type="submit">
@@ -15,7 +12,7 @@ GET ALL TASKS
     </form>
 </div>
 
-<div class="show">
-    {{task.title}}
-    {{task.description}}
+<div *ngIf="task.title" class="show">
+    <p>Title: {{task.title}}</p>
+    <p>Description: {{task.description}}</p>
 </div>
