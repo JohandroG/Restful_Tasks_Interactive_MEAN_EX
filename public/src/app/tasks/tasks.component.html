@@ -1,0 +1,20 @@
+<h1>Those are all the tasks</h1>
+
+<div *ngFor="let task of alltasks">
+    {{task.title}}
+    {{task.description}}
+    {{task.completed}}
+</div>
+
+<button type="button" (click)="displayAllTasks()">
+Display All
+</button>
+
+<form (submit) = "findTask($event)">
+    <input id="title" name="title" type="text">
+    <button>
+    Find Task
+    </button>
+</form>
+
+<h3>{{task}}</h3>
